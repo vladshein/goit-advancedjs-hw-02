@@ -1,0 +1,21 @@
+@import url('simplelightbox/dist/simple-lightbox.min.css');
+
+* {
+  box-sizing: border-box;
+}
+
+img {
+  width: 360px;
+  height: 200px;
+  object-fit: cover;
+}
+
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+  row-gap: 24px;
+  column-gap: 24px;
+}

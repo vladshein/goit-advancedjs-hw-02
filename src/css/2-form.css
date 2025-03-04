@@ -1,0 +1,63 @@
+@import url('./reset.css');
+
+.feedback-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 360px;
+  padding: 24px;
+  margin: 0 auto;
+  box-shadow: 0 10px 10px 0 #cccccc;
+  /* gap: 16px; */
+  color: #2e2f42;
+  font-family: Montserrat;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px; /* 150% */
+  letter-spacing: 0.64px;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  /* margin-bottom: 8px; */
+  gap: 8px;
+}
+
+/* .feedback-form-input {
+  height: 40px;
+  padding-left: 15px;
+  border: 1px solid #303030;
+  margin-bottom: 40px;
+}
+
+.feedback-form-message {
+  height: 80px;
+  padding: 15px;
+  border: 1px solid #303030;
+  margin-bottom: 20px;
+  resize: none;
+} */
+
+.feedback-form-submit {
+  display: flex;
+  padding: 8px 16px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+
+  border-radius: 8px;
+  background: #4e75ff;
+  border: 1px solid #303030;
+  /* border-radius: 4px; */
+  cursor: pointer;
+  align-self: flex-start;
+  transition: transform 250ms linear;
+  color: white;
+}
+
+.feedback-form-submit:hover,
+.feedback-form-submit:focus {
+  transform: scale(1.05);
+}

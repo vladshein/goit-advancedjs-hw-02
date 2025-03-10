@@ -10,8 +10,13 @@ form.addEventListener("submit", event => {
   console.dir(event.target);
   console.log("send form!");
 
-  let formDelay = event.target.querySelector("input[name='delay']").value;
-  let radioValue = document.querySelector('input[name="state"]:checked').value;
+  let formDelay = form.querySelector("input[name='delay']").value;
+  let radioValue = form.querySelector('input[name="state"]:checked').value;
+
+  console.log(formDelay);
+  console.log(radioValue);
+
+  form.reset();
 
   console.log(formDelay);
   console.log(radioValue);

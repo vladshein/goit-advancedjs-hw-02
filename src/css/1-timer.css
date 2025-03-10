@@ -11,12 +11,30 @@ img {
   object-fit: cover;
 }
 
+button {
+  margin-bottom: 16px;
+}
+
 .timer {
   display: flex;
   flex-wrap: wrap;
   justify-content: left;
   align-items: center;
   list-style: none;
-  gap: 8px;
+  gap: 16px;
   /* column-gap: 24px; */
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: left;
+  align-items: center;
+  list-style: none;
+  gap: 4px;
+}
+
+.value {
+  font-size: 40px;
 }

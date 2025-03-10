@@ -8,23 +8,26 @@
     <link rel="stylesheet" href="./css/2-snakebar.css" />
   </head>
   <body>
-    <!-- <h1 class="main-title">Form</h1> -->
     <script type="module" src="./js/2-snakebar.js"></script>
+    <form class="form">
+      <label>
+        Delay (ms)
+        <input type="number" name="delay" required />
+      </label>
 
-    <p><a href="./index.html">Go back</a></p>
+      <fieldset>
+        <legend>State</legend>
+        <label>
+          <input type="radio" name="state" value="fulfilled" required />
+          Fulfilled
+        </label>
+        <label>
+          <input type="radio" name="state" value="rejected" required />
+          Rejected
+        </label>
+      </fieldset>
 
-    <div class="container">
-      <form class="feedback-form" autocomplete="off">
-        <label class="text-label">
-          Email
-          <input type="email" name="email" autofocus />
-        </label>
-        <label class="text-label">
-          Message
-          <textarea name="message" rows="8"></textarea>
-        </label>
-        <button class="feedback-form-submit" type="submit">Submit</button>
-      </form>
-    </div>
+      <button type="submit">Create notification</button>
+    </form>
   </body>
 </html>

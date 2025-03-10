@@ -1,65 +1,42 @@
-const refs = {
-  feedbackForm: document.querySelector('.feedback-form'),
-};
+import iziToast from "izitoast";
 
-const formData = {
-  email: '',
-  message: '',
-};
+const form = document.querySelector(".form");
 
-const fillFormFields = feedbackForm => {
-  try {
-    const formDataFromLS = JSON.parse(
-      localStorage.getItem('feedback-form-state')
-    );
+// let formDelay = null;
+// let radioValue = null;
 
-    if (formDataFromLS === null) {
-      return;
-    }
-
-    if (formDataFromLS.email) formData.email = formDataFromLS.email;
-    if (formDataFromLS.message) formData.message = formDataFromLS.message;
-
-    const formDataKeys = Object.keys(formDataFromLS);
-
-    formDataKeys.forEach(key => {
-      feedbackForm.elements[key].value = formDataFromLS[key];
-    });
-  } catch (err) {
-    console.log(err);
-  }
-};
-
-fillFormFields(refs.feedbackForm);
-
-const onFieldChange = ({ target: formField }) => {
-  const formFieldName = formField.name;
-  const formFieldValue = formField.value;
-
-  formData[formFieldName] = formFieldValue;
-
-  localStorage.setItem('feedback-form-state', JSON.stringify(formData));
-};
-
-const onFeedbackFormSubmit = event => {
+form.addEventListener("submit", event => {
   event.preventDefault();
+  console.dir(event.target);
+  console.log("send form!");
 
-  //   const email = document.querySelector('input').value;
-  //   const message = document.querySelector('textarea').value;
+  let formDelay = event.target.querySelector("input[name='delay']").value;
+  let radioValue = document.querySelector('input[name="state"]:checked').value;
 
-  if (!formData.email || !formData.message) {
-    // event.preventDefault(); // Prevent form submission
-    alert('Будь ласка, заповніть усі поля');
-    return;
-  }
-  console.log(formData.email);
-  console.log(formData.message);
+  console.log(formDelay);
+  console.log(radioValue);
 
-  event.target.reset();
-  localStorage.removeItem('feedback-form-state');
-  formData.email = '';
-  formData.message = '';
-};
+  const promise = new Promise((resolve, reject) => {
+    setTimeout(() => {
+      if (radioValue === "fulfilled") {
+        resolve(formDelay);
+      } else {
+        reject(formDelay);
+      }
+    }, formDelay);
+  });
 
-refs.feedbackForm.addEventListener('input', onFieldChange);
-refs.feedbackForm.addEventListener('submit', onFeedbackFormSubmit);
+  promise
+    .then(result => {
+      iziToast.show({
+        title: "",
+        message: `Fulfilled promise in ${result}ms`,
+      });
+    })
+    .catch(error => {
+      iziToast.show({
+        title: "",
+        message: `Rejected promise in ${error}ms`,
+      });
+    });
+});

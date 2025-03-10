@@ -1,2 +1,2 @@
 import"./assets/modulepreload-polyfill-B5Qt9EMX.js";import{i as s}from"./assets/vendor-Dov3POoy.js";const r=document.querySelector(".form");r.addEventListener("submit",t=>{t.preventDefault(),console.dir(t.target),console.log("send form!");let o=t.target.querySelector("input[name='delay']").value,l=document.querySelector('input[name="state"]:checked').value;console.log(o),console.log(l),new Promise((e,i)=>{setTimeout(()=>{l==="fulfilled"?e(o):i(o)},o)}).then(e=>{s.show({title:"",message:`Fulfilled promise in ${e}ms`})}).catch(e=>{s.show({title:"",message:`Rejected promise in ${e}ms`})})});
-//# sourceMappingURL=2-snakebar.js.map
+//# sourceMappingURL=2-snackbar.js.map
